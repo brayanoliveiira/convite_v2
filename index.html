@@ -107,6 +107,31 @@
             80% { color: blue; }
             100% { color: violet; }
         }
+
+        /* Estilo para a caixa gigantesca e brilhante */
+        #giant-box {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffd700; /* Dourado brilhante */
+            color: #000;
+            border: 5px solid #ff4500; /* Laranja brilhante */
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 0 50px 20px rgba(255, 69, 0, 0.8); /* Sombra brilhante */
+            z-index: 1000;
+            font-size: 48px;
+            font-weight: bold;
+            animation: flash 1s infinite;
+        }
+
+        @keyframes flash {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -118,6 +143,9 @@
             <button id="nao">NÃÃÃÃÃÃÃÃO CARAI ME DEIXA EM PAZ</button>
         </div>
     </div>
+
+    <!-- Caixa gigantesca e brilhante -->
+    <div id="giant-box">OBRIGADO GARANTO QUE NÃO VAI SE ARREPENDER</div>
 
     <script>
         var moveButton = document.getElementById("nao");
@@ -131,7 +159,11 @@
 
         var correctlyButton = document.getElementById("sim");
         correctlyButton.addEventListener("click", function () {
-            alert("Amém, achei que n ia aceitar nunca! Já que aceitou por livre e espontânea vontade, te busco às 18h né?");
+            var giantBox = document.getElementById("giant-box");
+            giantBox.style.display = "block";
+            setTimeout(function() {
+                giantBox.style.display = "none";
+            }, 5000); // A caixa desaparece após 5 segundos
         });
 
         function createHeart() {
