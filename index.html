@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap">
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-weight: 300;
+            font-size: 46px; /* Ajuste o tamanho conforme necessário */
+            animation: rainbow 2s infinite;
+        }
+
+        @keyframes rainbow {
+            0% { color: red; }
+            20% { color: orange; }
+            40% { color: yellow; }
+            60% { color: green; }
+            80% { color: blue; }
+            100% { color: violet; }
+        }
+
+        h3 {
+            font-weight: 300;
+            font-size: 36px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 40px;
+            border-radius: 5px;
+            font-family: "Roboto", sans-serif;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:first-child {
+            background-color: green;
+        }
+
+        button#nao {
+            background-color: red;
+            position: absolute;
+        }
+
+        div.buttons {
+            display: flex;
+            justify-content: space-around;
+            width: 300px;
+            margin-top: 30px;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            transform: rotate(45deg);
+            animation: float 5s infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            top: 0;
+            left: -10px;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+            100% { transform: translateY(-200px) rotate(45deg); opacity: 0; }
+        }
+
+        @keyframes rainbow {
+            0% { color: red; }
+            20% { color: orange; }
+            40% { color: yellow; }
+            60% { color: green; }
+            80% { color: blue; }
+            100% { color: violet; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Poxa Beatriz, aceita logo o convite! Confia em mim e no rolê misterioso 🌟</h1>
+        <h3>Me dá uma chancezinha aí, na moral...</h3>
+        <div class="buttons">
+            <button id="sim">Sim</button>
+            <button id="nao">Não</button>
+        </div>
+    </div>
+
+    <script>
+        var moveButton = document.getElementById("NÃÃÃÃÃÃO");
+
+        moveButton.addEventListener("mouseover", function () {
+            var vertical = Math.floor(Math.random() * (window.innerHeight - 50));
+            var horizontal = Math.floor(Math.random() * (window.innerWidth - 100));
+            moveButton.style.left = horizontal + "px";
+            moveButton.style.top = vertical + "px";
+        });
+
+        var correctlyButton = document.getElementById("Com certeza");
+        correctlyButton.addEventListener("click", function () {
+            alert("Amém, achei que n ia aceitar nunca! Já que aceitou por livre e espontânea vontade, te busco às 18h né?");
+        });
+
+        function createHeart() {
+            var heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
